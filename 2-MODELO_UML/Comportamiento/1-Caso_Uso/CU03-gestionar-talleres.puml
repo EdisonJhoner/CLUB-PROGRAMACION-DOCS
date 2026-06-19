@@ -1,0 +1,32 @@
+@startuml
+left to right direction
+!theme bluegray
+
+title <size:20><b>Caso de uso "CU03 - Gestionar Talleres"</b></size>
+
+actor "Administrador" as admin
+actor "Instructor" as instructor
+
+rectangle "CLUB PROGRAMACIÓN"{
+
+usecase "💻\n<size:18><b>CU03</b></size>\nGestionar Talleres" as UC_Taller
+
+usecase "➕\nCrear Taller" as UC_Crear
+
+usecase "✏️\nEditar Taller" as UC_Editar
+
+usecase "❌\nEliminar Taller" as UC_Eliminar
+
+usecase "👨‍🏫\nAsignar Instructor" as UC_Asignar
+
+}
+
+admin --> UC_Taller
+instructor --> UC_Taller
+
+UC_Taller ..> UC_Crear : <<include>>
+UC_Taller ..> UC_Editar : <<include>>
+UC_Taller ..> UC_Eliminar : <<include>>
+UC_Taller ..> UC_Asignar : <<include>>
+
+@enduml

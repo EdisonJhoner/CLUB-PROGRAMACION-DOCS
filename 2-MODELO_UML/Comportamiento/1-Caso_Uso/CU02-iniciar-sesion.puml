@@ -1,0 +1,31 @@
+@startuml
+left to right direction
+!theme bluegray
+
+title <size:20><b>Caso de uso "CU02 - Iniciar Sesión"</b></size>
+
+actor "Administrador" as admin
+actor "Instructor" as instructor
+actor "Miembro" as miembro
+
+rectangle "CLUB PROGRAMACIÓN"{
+
+    usecase "🔐\n<size:18><b>CU02</b></size>\nIniciar Sesión" as UC_Login
+
+    usecase "🔒\nValidar\nCredenciales" as UC_Validar
+
+    usecase "🎫\nGenerar\nToken JWT" as UC_JWT
+
+    usecase "⚠️\nMostrar\nMensaje Error" as UC_Error
+}
+
+admin --> UC_Login : Accede
+instructor --> UC_Login : Accede
+miembro --> UC_Login : Accede
+
+UC_Login ..> UC_Validar : <<include>>
+UC_Login ..> UC_JWT : <<include>>
+
+UC_Error ..> UC_Login : <<extend>>
+
+@enduml

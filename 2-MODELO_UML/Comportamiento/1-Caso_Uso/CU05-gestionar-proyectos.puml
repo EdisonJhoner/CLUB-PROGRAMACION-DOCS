@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+!theme bluegray
+
+title <size:20><b>CU05 - Gestionar Proyectos</b></size>
+
+actor "Instructor" as instructor
+
+rectangle "CLUB PROGRAMACIÓN" {
+
+usecase "Gestionar Proyectos" as proyectos
+
+usecase "Crear Proyecto" as crear
+usecase "Asignar Integrantes" as asignar
+usecase "Registrar Avances" as avance
+usecase "Evaluar Proyecto" as evaluar
+
+}
+
+instructor --> proyectos
+
+proyectos ..> crear : <<include>>
+proyectos ..> asignar : <<include>>
+proyectos ..> avance : <<include>>
+proyectos ..> evaluar : <<include>>
+
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+!theme bluegray
+
+title C4 - Diagrama de Componentes
+
+package "Servicio Talleres" {
+
+    [TallerController]
+
+    [TallerService]
+
+    [TallerRepository]
+
+}
+
+[TallerController] --> [TallerService]
+
+[TallerService] --> [TallerRepository]
+
+@enduml

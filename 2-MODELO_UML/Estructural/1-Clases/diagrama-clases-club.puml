@@ -1,0 +1,76 @@
+@startuml
+!theme bluegray
+
+title <size:20><b>Diagrama de Clases - Club de Programación</b></size>
+
+class Usuario {
+    -id : Long
+    -nombre : String
+    -correo : String
+    -password : String
+    -rol : String
+
+    +iniciarSesion()
+    +cerrarSesion()
+}
+
+class Miembro {
+    -universidad : String
+    -carrera : String
+
+    +inscribirseTaller()
+    +participarEvento()
+}
+
+class Instructor {
+    -especialidad : String
+
+    +dictarTaller()
+    +evaluarProyecto()
+}
+
+class Taller {
+    -id : Long
+    -nombre : String
+    -descripcion : String
+    -fecha : Date
+
+    +crear()
+    +editar()
+    +eliminar()
+}
+
+class Evento {
+    -id : Long
+    -nombre : String
+    -tipo : String
+    -fecha : Date
+
+    +crear()
+    +editar()
+    +eliminar()
+}
+
+class Proyecto {
+    -id : Long
+    -nombre : String
+    -tecnologia : String
+    -estado : String
+
+    +crear()
+    +registrarAvance()
+    +evaluar()
+}
+
+Usuario <|-- Miembro
+Usuario <|-- Instructor
+
+Instructor "1" -- "*" Taller : dicta
+Miembro "*" -- "*" Taller : participa
+
+Miembro "*" -- "*" Evento : asiste
+
+Instructor "1" -- "*" Proyecto : supervisa
+Miembro "*" -- "*" Proyecto : desarrolla
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+left to right direction
+!theme bluegray
+
+skinparam footerFontColor black
+
+title <size:20><b>Caso de uso "CU01 - Registrar Miembro"</b></size>
+
+actor "Administrador" as admin
+
+rectangle "CLUB PROGRAMACIÓN" {
+
+    usecase "👤\n<size:18><b>CU01</b></size>\nRegistrar Miembro" as UC_Registrar
+
+    usecase "✔️\nValidar Datos" as UC_Validar
+
+    usecase "📝\nRegistrar Auditoría" as UC_Auditoria
+
+    usecase "📧\nEnviar Confirmación" as UC_Correo
+
+}
+
+admin --> UC_Registrar : Registra
+
+UC_Registrar ..> UC_Validar : <<include>>
+UC_Registrar ..> UC_Auditoria : <<include>>
+UC_Registrar ..> UC_Correo : <<include>>
+
+@enduml

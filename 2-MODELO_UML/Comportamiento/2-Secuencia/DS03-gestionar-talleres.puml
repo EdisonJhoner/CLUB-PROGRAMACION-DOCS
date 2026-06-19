@@ -1,0 +1,24 @@
+@startuml
+!theme bluegray
+
+title Diagrama de Secuencia - Gestionar Talleres
+
+actor Administrador
+
+participant TallerUI
+participant TallerService
+database DB
+
+Administrador -> TallerUI : Crear taller
+
+TallerUI -> TallerService : Guardar taller
+
+TallerService -> DB : Insertar datos
+
+DB --> TallerService : Confirmación
+
+TallerService --> TallerUI : Taller creado
+
+TallerUI --> Administrador : Mostrar éxito
+
+@enduml

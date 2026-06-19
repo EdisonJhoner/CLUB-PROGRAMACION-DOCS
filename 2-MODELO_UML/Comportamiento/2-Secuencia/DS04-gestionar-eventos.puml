@@ -1,0 +1,24 @@
+@startuml
+!theme bluegray
+
+title Diagrama de Secuencia - Gestionar Eventos
+
+actor Administrador
+
+participant EventoUI
+participant EventoService
+database DB
+
+Administrador -> EventoUI : Registrar evento
+
+EventoUI -> EventoService : Guardar evento
+
+EventoService -> DB : Insertar evento
+
+DB --> EventoService : Confirmación
+
+EventoService --> EventoUI : Evento registrado
+
+EventoUI --> Administrador : Mostrar mensaje
+
+@enduml

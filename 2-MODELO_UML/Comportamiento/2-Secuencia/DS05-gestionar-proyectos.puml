@@ -1,0 +1,24 @@
+@startuml
+!theme bluegray
+
+title Diagrama de Secuencia - Gestionar Proyectos
+
+actor Instructor
+
+participant ProyectoUI
+participant ProyectoService
+database DB
+
+Instructor -> ProyectoUI : Crear proyecto
+
+ProyectoUI -> ProyectoService : Registrar proyecto
+
+ProyectoService -> DB : Guardar proyecto
+
+DB --> ProyectoService : Confirmación
+
+ProyectoService --> ProyectoUI : Proyecto creado
+
+ProyectoUI --> Instructor : Mostrar resultado
+
+@enduml

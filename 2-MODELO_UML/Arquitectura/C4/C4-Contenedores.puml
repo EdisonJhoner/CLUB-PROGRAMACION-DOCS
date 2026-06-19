@@ -1,0 +1,34 @@
+@startuml
+!theme bluegray
+
+title C4 - Diagrama de Contenedores
+
+package "Club de Programación" {
+
+    [Web App]
+
+    [Servicio Usuarios]
+
+    [Servicio Talleres]
+
+    [Servicio Eventos]
+
+    [Servicio Proyectos]
+
+    database "MySQL"
+}
+
+[Web App] --> [Servicio Usuarios]
+
+[Web App] --> [Servicio Talleres]
+
+[Web App] --> [Servicio Eventos]
+
+[Web App] --> [Servicio Proyectos]
+
+[Servicio Usuarios] --> MySQL
+[Servicio Talleres] --> MySQL
+[Servicio Eventos] --> MySQL
+[Servicio Proyectos] --> MySQL
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml
+!theme bluegray
+
+title C4 - Diagrama de Contexto
+
+actor "Administrador" as Admin
+actor "Instructor" as Instructor
+actor "Miembro" as Miembro
+
+rectangle "Sistema Club de Programación" {
+
+    usecase "Gestionar Miembros"
+    usecase "Gestionar Talleres"
+    usecase "Gestionar Eventos"
+    usecase "Gestionar Proyectos"
+
+}
+
+Admin --> (Gestionar Miembros)
+Admin --> (Gestionar Talleres)
+Admin --> (Gestionar Eventos)
+
+Instructor --> (Gestionar Proyectos)
+Instructor --> (Gestionar Talleres)
+
+Miembro --> (Gestionar Talleres)
+Miembro --> (Gestionar Eventos)
+
+@enduml

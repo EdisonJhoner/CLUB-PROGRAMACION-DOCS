@@ -1,0 +1,22 @@
+@startuml
+!theme bluegray
+
+actor Administrador
+
+participant "Formulario Registro" as Form
+participant "Servicio Miembro" as Service
+database "Base de Datos" as DB
+
+Administrador -> Form : Registrar miembro
+
+Form -> Service : Enviar datos
+
+Service -> DB : Guardar miembro
+
+DB --> Service : Confirmación
+
+Service --> Form : Registro exitoso
+
+Form --> Administrador : Mostrar mensaje
+
+@enduml

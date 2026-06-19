@@ -1,0 +1,24 @@
+@startuml
+!theme bluegray
+
+title Diagrama de Secuencia - Iniciar Sesión
+
+actor Usuario
+
+participant Login
+participant AuthService
+database DB
+
+Usuario -> Login : Ingresa credenciales
+
+Login -> AuthService : Validar usuario
+
+AuthService -> DB : Buscar usuario
+
+DB --> AuthService : Datos usuario
+
+AuthService --> Login : Acceso autorizado
+
+Login --> Usuario : Mostrar menú principal
+
+@enduml

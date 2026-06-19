@@ -1,0 +1,25 @@
+@startuml
+left to right direction
+!theme bluegray
+
+title <size:20><b>CU04 - Gestionar Eventos</b></size>
+
+actor "Administrador" as admin
+
+rectangle "CLUB PROGRAMACIÓN" {
+
+usecase "Gestionar Eventos" as eventos
+
+usecase "Crear Evento" as crear
+usecase "Editar Evento" as editar
+usecase "Eliminar Evento" as eliminar
+
+}
+
+admin --> eventos
+
+eventos ..> crear : <<include>>
+eventos ..> editar : <<include>>
+eventos ..> eliminar : <<include>>
+
+@enduml
