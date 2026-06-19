@@ -1,0 +1,29 @@
+@startuml Secuencia-RegistrarUsuario
+!theme bluegray
+
+
+actor Administrador as Admin
+boundary "Vista Gestionar Usuarios" as Vista
+control "UsuarioController" as Control
+entity "Usuario" as Entity
+
+Admin -> Vista : Selecciona "Crear Nuevo Usuario"
+activate Vista
+Vista --> Admin : Muestra formulario (nombre, correo, password, rol)
+deactivate Vista
+
+Admin -> Vista : Ingresa datos y confirma
+activate Vista
+Vista -> Control : registrarUsuario(nombre, correo, password, rol)
+activate Control
+
+create Entity
+Control -> Entity : new(id, nombre, correo, password, rol)
+Control -> Control : guardarEnBaseDatos()
+
+Control --> Vista : Confirmación de registro exitoso
+deactivate Control
+Vista --> Admin : Muestra mensaje de éxito
+deactivate Vista
+
+@enduml

@@ -1,0 +1,25 @@
+@startuml CU05-Gestionar-Usuarios
+!theme bluegray
+
+left to right direction
+
+left to right direction
+
+actor "Administrador" as Admin
+
+rectangle "Sistema Club de Programación" {
+    usecase "CU05 - Gestionar Usuarios" as UC_Gestionar
+    usecase "Crear Usuario" as UC_Crear
+    usecase "Visualizar Usuario" as UC_Leer
+    usecase "Modificar Usuario" as UC_Actualizar
+    usecase "Eliminar Usuario" as UC_Eliminar
+    
+    ' Extensiones obligatorias o condicionales del CRUD
+    UC_Gestionar <|-- UC_Crear
+    UC_Gestionar <|-- UC_Leer
+    UC_Gestionar <|-- UC_Actualizar
+    UC_Gestionar <|-- UC_Eliminar
+}
+
+Admin --> UC_Gestionar
+@enduml
