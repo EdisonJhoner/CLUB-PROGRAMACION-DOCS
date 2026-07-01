@@ -1,0 +1,19 @@
+@startuml CU07-Inscribirse-Taller
+!theme bluegray
+
+left to right direction
+
+actor "Miembro" as Miembro
+
+rectangle "Sistema Club de Programación" {
+    usecase "CU07 - Inscribirse a Taller" as UC_Inscribir
+    usecase "Verificar Disponibilidad de Cupos" as UC_Cupos
+    usecase "Notificar Confirmación" as UC_Notificar
+    
+    ' Relaciones
+    UC_Inscribir ..> UC_Cupos : <<include>>
+    UC_Inscribir ..> UC_Notificar : <<include>>
+}
+
+Miembro --> UC_Inscribir
+@enduml
