@@ -1,0 +1,21 @@
+@startuml
+title Patrón de Diseño Singleton
+
+class ConfiguracionClub {
+
+    - instancia : ConfiguracionClub
+    - nombreClub : String
+    - correoClub : String
+    - maximoMiembros : int
+
+    - ConfiguracionClub()
+
+    + getInstance() : ConfiguracionClub
+    + getNombreClub() : String
+    + getCorreoClub() : String
+    + getMaximoMiembros() : int
+}
+
+ConfiguracionClub --> ConfiguracionClub : instancia única
+
+@enduml
